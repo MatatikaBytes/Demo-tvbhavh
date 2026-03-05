@@ -1,0 +1,80 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-hubspot",
+  "namespace": "tap_hubspot",
+  "variant": "meltanolabs",
+  "label": "Hubspot",
+  "docs": "https://www.matatika.com/data-details/tap-hubspot/",
+  "repo": "https://github.com/MeltanoLabs/tap-hubspot",
+  "pip_url": "git+https://github.com/MeltanoLabs/tap-hubspot.git@v0.6.6",
+  "description": "Hubspot is a software company that provides a suite of tools for inbound marketing, sales, and customer service.\n\nHubspot's software is designed to help businesses attract, engage, and delight customers by providing a range of tools for inbound marketing, sales, and customer service. The company's marketing tools include a content management system, social media management, email marketing, and search engine optimization. Its sales tools include a CRM system, sales automation, and lead management. Finally, its customer service tools include a help desk, ticketing system, and customer feedback management. Hubspot's software is designed to be user-friendly and accessible to businesses of all sizes, with pricing plans that range from free to enterprise-level.\n### Prerequisites\nTo obtain the HubSpot Access Token, you need to log in to your HubSpot account and navigate to the Integrations section. From there, you can create a new Legacy App, go to Auth, and  generate an access token.  Add the scopes to match your required streams. To obtain the Start Date, you need to determine the date from which you want to start syncing data  from HubSpot to your other system. This will depend on your specific use case and requirements.",
+  "logo_url": "/assets/logos/extractors/hubspot.png",
+  "capabilities": [
+    "catalog",
+    "about",
+    "batch",
+    "discover",
+    "activate-version",
+    "stream-maps",
+    "state",
+    "schema-flattening"
+  ],
+  "settings": [
+    {
+      "name": "access_token",
+      "kind": "string",
+      "label": "Access Token",
+      "description": "Token to authenticate against the API service",
+      "hidden": false,
+      "sensitive": true,
+      "required": "true",
+      "protected": false
+    },
+    {
+      "name": "start_date",
+      "kind": "date_iso8601",
+      "label": "Start Date",
+      "description": "Earliest record date to sync",
+      "hidden": false,
+      "sensitive": false,
+      "required": "true",
+      "protected": false
+    },
+    {
+      "name": "end_date",
+      "kind": "date_iso8601",
+      "label": "End Date",
+      "description": "Latest record date to sync",
+      "hidden": false,
+      "sensitive": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_enabled",
+      "kind": "boolean",
+      "label": "Flattening Enabled",
+      "description": "A boolean value indicating whether or not to flatten the response data.",
+      "hidden": false,
+      "sensitive": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_max_depth",
+      "kind": "integer",
+      "label": "Flattening Max Depth",
+      "description": "An integer value indicating the maximum depth to flatten the response data.",
+      "hidden": false,
+      "sensitive": false,
+      "protected": false
+    },
+    {
+      "name": "stream_maps",
+      "kind": "object",
+      "label": "Stream Maps",
+      "description": "Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html).",
+      "hidden": true,
+      "sensitive": false,
+      "protected": false
+    }
+  ]
+}
